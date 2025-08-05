@@ -3,8 +3,9 @@ const {z} = require("zod")
 const bcrypt = require("bcrypt")
 const userRouter = Router();
 const jwt = require("jsonwebtoken")
-
+require('dotenv').config();
 const {userModel} = require("../db")
+const {userMiddleware} = require("../middleware/user")
 
 userRouter.post('/signup',async function(req,res){
    const requiredBody = z.object({
